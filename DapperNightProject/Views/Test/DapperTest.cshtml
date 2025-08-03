@@ -1,0 +1,275 @@
+﻿@model DapperNightProject.Models.CompareViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.Yontem Performans Karşılaştırması</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9ff;
+            --dark: #2b2d42;
+            --gray: #6c757d;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 20px rgba(67, 97, 238, 0.15);
+        }
+
+        .method-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .method-tab {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 2px solid transparent;
+        }
+
+            .method-tab.active {
+                background: white;
+                color: var(--primary);
+                border-color: var(--primary);
+                box-shadow: 0 4px 12px rgba(67, 97, 238, 0.2);
+            }
+
+            .method-tab:not(.active) {
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+            }
+
+                .method-tab:not(.active):hover {
+                    background: rgba(255, 255, 255, 0.3);
+                }
+
+        .metrics-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            min-width: 220px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--accent);
+        }
+
+            .metric-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .metric-title {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .metric-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .metric-unit {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .data-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .table thead th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            border: none;
+        }
+
+        .table tbody td {
+            padding: 1rem 1.5rem;
+            vertical-align: middle;
+            border-color: #f1f3f9;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+
+        .no-data {
+            padding: 3rem;
+            text-align: center;
+            color: var(--gray);
+        }
+
+            .no-data i {
+                font-size: 3rem;
+                color: #e9ecef;
+                margin-bottom: 1rem;
+            }
+
+        .badge-genre {
+            background: #e3f2fd;
+            color: var(--primary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+
+        media (max-width: 768px) {
+            .metrics-container
+
+        {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .metric-card {
+            width: 100%;
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1 class="text-center mb-4">ORM Performans Karşılaştırması</h1>
+            <div class="method-tabs">
+                <a href="/Test/EfTest" class="method-tab @(Model.Yontem == "Entity Framework" ? "active" : "")">
+                    <i class="fas fa-database me-2"></i> Entity Framework
+                </a>
+                <a href="/Test/DapperTest" class="method-tab @(Model.Yontem == "Dapper" ? "active" : "")">
+                    <i class="fas fa-bolt me-2"></i> Dapper
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="metrics-container">
+            <div class="metric-card">
+                <div class="metric-title">Kullanılan Yöntem</div>
+                <div class="metric-value" style="font-size:1.5rem;">@Model.Yontem</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Kayıt Sayısı</div>
+                <div class="metric-value">@Model.RecordCount.ToString("N0")</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Sorgu Süresi</div>
+                <div class="metric-value">@Model.ElapsedMilliseconds <span class="metric-unit">ms</span></div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Bellek Kullanımı</div>
+                <div class="metric-value">
+                    @((Model.MemoryUsedBytes / (1024.0 * 1024.0)).ToString("N2"))
+                    <span class="metric-unit">MB</span>
+                </div>
+            </div>
+        </div>
+        <div class="data-table">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Başlık</th>
+                            <th>Sanatçı</th>
+                            <th>Tür</th>
+                            <th>Bölge</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.RecordList != null && Model.RecordList.Any())
+                        {
+                            int i = 1;
+                            foreach (var item in Model.RecordList)
+                            {
+                                <tr>
+                                    <td class="fw-semibold">@i</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.Artist</td>
+                                    <td><span class="badge-genre">@item.Genre</span></td>
+                                    <td>@item.Region</td>
+                                </tr>
+                                i++;
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5">
+                                    <div class="no-data">
+                                        <i class="far fa-folder-open"></i>
+                                        <h4>Kayıt bulunamadı</h4>
+                                        <p>Veritabanında sorgu sonucu dönen kayıt yok</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Aktif tab'ı vurgula
+        document.querySelectorAll('.method-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.method-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

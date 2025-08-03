@@ -1,0 +1,24 @@
+﻿@model DapperNightProject.Dtos.EmployeeDtos.GetEmployeeByIdDto
+@{
+    Layout = null;
+}
+
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <form method="post">
+        <input type="hidden" asp-for="EmployeeId" />
+        <br /><br />
+        <label>Personel Adı </label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <br />
+        <label>Personel Soyadı</label>
+        <input type="text" asp-for="Surname" class="form-control" />
+        <br />
+        <label>Personel Maaşı</label>
+        <input type="text" asp-for="Salary" class="form-control" />
+        <br />
+        <button class="btn btn-success">Güncelle.</button>
+    </form> 
+</div>

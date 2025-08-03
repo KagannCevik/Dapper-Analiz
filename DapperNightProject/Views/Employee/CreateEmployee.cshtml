@@ -1,0 +1,22 @@
+﻿@model DapperNightProject.Dtos.EmployeeDtos.CreateEmployeeDto
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <form method="post">
+        <br /><br />
+        <label>Personel Adı Adı</label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <br />
+        <label>Personel Soyadı</label>
+        <input type="text" asp-for="Surname" class="form-control" />
+        <br />
+        <label>Personel Maaşı</label>
+        <input type="text" asp-for="Salary" class="form-control" />
+        <br />
+        <button class="btn btn-info">Personeli oluştur .</button>
+    </form>
+</div>

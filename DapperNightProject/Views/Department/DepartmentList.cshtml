@@ -1,0 +1,29 @@
+﻿@model List<DapperNightProject.Dtos.DepartmentDtos.ResultDepartmentDto>
+
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Depertman Adı</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.DepartmentId</td>
+                <td>@item.DepartmentName</td>
+                <td><a href="/Department/DeleteDepartment/@item.DepartmentId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Department/UpdateDepartment/@item.DepartmentId" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <td><a href="/Department/CreateDepartment/" class="btn btn-info">Yeni Departman Girişi</a></td>
+</div>
