@@ -6,7 +6,7 @@
 ![CodeFirst](https://img.shields.io/badge/EF-Code%20First-success)
 ![UI](https://img.shields.io/badge/UI-Bootstrap%205-blueviolet)
 ![Status](https://img.shields.io/badge/status-Active-brightgreen)
-![Dapper](https://img.shields.io/badge/platform-Dapper-brightgreen)
+![Dapper](https://img.shields.io/badge/EF-Dapper-brightgreen)
 ---
 
 ## 🎯 Proje Özeti
