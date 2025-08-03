@@ -54,12 +54,13 @@ Ayrıca iki ORM'in **sorgu süresi** ve **bellek kullanımı** gibi metrikleri d
 ---
 
 ## 🧩 Proje Yapısı
-├── Controllers/ -> MVC Controller dosyaları (Dapper, EF, İstatistik, Test)
-├── Models/ -> Entity ve DTO sınıfları (Record, Sale, StatDto...)
-├── Views/ -> Razor View dosyaları (Dashboard, Karşılaştırma...)
-├── Context/ -> EF ve Dapper için DbContext ve bağlantılar
-├── Services/ -> Dapper & EF servisleri, analiz servisleri
-└── wwwroot/ -> CSS, JS, Bootstrap, Chart.js ve görseller
+
+- **Controllers/** → MVC Controller dosyaları (Dapper, EF, İstatistik, Test)
+- **Models/** → Entity ve DTO sınıfları (Record, Sale, StatDto...)
+- **Views/** → Razor View dosyaları (Dashboard, Karşılaştırma...)
+- **Context/** → EF ve Dapper için DbContext ve bağlantılar
+- **Services/** → Dapper & EF servisleri, analiz servisleri
+- **wwwroot/** → CSS, JS, Bootstrap, Chart.js ve görseller
 
 
 
@@ -102,7 +103,7 @@ Ayrıca iki ORM'in **sorgu süresi** ve **bellek kullanımı** gibi metrikleri d
 
 - Tüm grafikler ve istatistikler dinamik olarak güncellenir.
 - Dashboard, Bootstrap 5 ve Chart.js ile responsive şekilde tasarlanmıştır.
-- Minimal ve hızlı yüklenen tek sayfa uygulama (SPA) deneyimi hedeflenmiştir.
+
 
 ---
 
