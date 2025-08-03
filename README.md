@@ -1,21 +1,17 @@
 🚀 Satış Analiz ve ORM Karşılaştırma Dashboardu
 Büyük Veri ile ASP.NET Core MVC, Dapper & Entity Framework Core Performans Karşılaştırma Paneli
-!Platform
-!Database
-!Dapper
-!EFCore
-!Bootstrap
-!Chart.js
-!Status
+
 🎯 Proje Özeti
 Satış Dashboardu, 10 milyon+ satırlık gerçek bir satış verisiyle, Dapper ve Entity Framework Core’un büyük veri üzerindeki performansını karşılaştıran, modern ve profesyonel bir analiz panelidir.
 Kullanıcılar, satış istatistiklerini, ciro ve kâr gibi finansal verileri, en çok satan ürünleri ve mağazaları, aylık ve şehir bazlı satış grafiklerini ve daha fazlasını anlık olarak görüntüleyebilir.
 Ayrıca, Dapper ve EF Core ile yapılan sorguların hız ve bellek kullanımı karşılaştırmalı olarak sunulur.
+
 🏆 Neden Bu Proje?
 Gerçek Büyük Veri: 10M+ satırlık satış datası ile gerçekçi performans testi
 ORM Karşılaştırması: Dapper ve EF Core’un hız, bellek ve sorgu kolaylığı açısından farklarını canlı olarak gösterir
 Modern Dashboard: Tamamen responsive, profesyonel ve kullanıcı dostu arayüz
 Geliştirici Odaklı: SQL ve LINQ sorgu önizlemesi, performans metrikleri ve detaylı istatistikler
+
 🛠️ Kullanılan Teknolojiler
 Teknoloji	Açıklama
 ASP.NET Core MVC	Web uygulama çatısı
@@ -26,6 +22,7 @@ Bootstrap 5	Modern ve responsive arayüz
 Chart.js	Dinamik grafikler
 jQuery & JS	Dinamik işlemler ve görselleştirme
 HTML5 & CSS3	Temel yapı ve özelleştirme
+
 > Özel:
 > - Dapper ile yüksek performanslı veri çekme ve istatistik üretimi
 > - EF Core ile karşılaştırmalı sorgu süresi ve bellek kullanımı ölçümü
